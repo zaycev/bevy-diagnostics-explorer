@@ -1,0 +1,16 @@
+[package]
+name = "bevy_diagnostics_explorer"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+bevy_utils = "0.10.1"
+bevy_app = "0.10.1"
+bevy_ecs = "0.10.1"
+byteorder = "1.4.3"
+tracing-subscriber = "0.3.17"
+tracing = "0.1.37"
+base64 = "0.21.0"
+crossbeam-channel = "0.5.8"
+actix-web = "4.3.1"
+hashbrown = "0.13.2"
