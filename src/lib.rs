@@ -19,8 +19,6 @@ use tracing_subscriber::layer::{Context, Layer, SubscriberExt};
 
 use crate::types::SpanMsg;
 
-const API_PORT: u16 = 5444;
-const API_ENDPOINT: &str = "http://[::1]";
 const SPAN_LOCAL_BUF_CAP: usize = 10_000;
 const SPAN_SHARED_BUF_CAP: usize = 100_000;
 const NAME_REGISTRY_CAP: usize = 1000;
@@ -197,13 +195,13 @@ impl Visit for NameVisitor<'_> {
         if field.name() == "name" {
             if let Some(id) = self.id_by_name.get(value) {
                 self.field = Some(*id);
-                
+
             } else {
                 let id = self.id_by_name.len() as u32;
                 self.id_by_name.insert(value.to_string(), id);
                 self.name_by_id.push(value.to_string());
                 self.field = Some(id);
-                
+
             }
         }
     }
@@ -241,7 +239,7 @@ async fn http_server(
             }))
             .service(get_spans)
     })
-    .bind((API_ENDPOINT, API_PORT))?
+    .bind(("127.0.0.1", 5444))?
     .run()
     .await
 }
