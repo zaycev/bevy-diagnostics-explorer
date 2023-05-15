@@ -1,6 +1,6 @@
 [package]
 name = "bevy_diagnostics_explorer"
-authors = ["Vladimir Zaytsev <vladimir.zaytsev.m@gmail.com>"]
+authors = ["Vladimir Zaytsev <vladimir@xyzw.io>"]
 version = "0.1.0"
 edition = "2021"
 description = "Bevy plugin that provides provides diagnostics into VSCode extension"
