@@ -1,5 +1,6 @@
 {
   "name": "bevy-diagnostic-explorer",
+  "publisher": "xyzw-io",
   "displayName": "Bevy Diagnostics Explorer",
   "description": "Diagnostics Explorer for Bevy Engine",
   "version": "0.0.1",
