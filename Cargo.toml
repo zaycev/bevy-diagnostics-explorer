@@ -5,6 +5,9 @@ version = "0.1.0"
 edition = "2021"
 description = "Bevy plugin that provides provides diagnostics into VSCode extension"
 license = "Apache-2.0"
+exclude = [
+    "vscode-extension"
+]
 
 [dependencies]
 bevy_utils = "0.10.1"
