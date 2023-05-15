@@ -1,5 +1,11 @@
 {
   "name": "bevy-diagnostic-explorer",
+  "publisher": "xyzw-io",
+  "author": {
+    "name": "Vladimir Zaytsev",
+    "email": "vladimir@xyzw.io"
+  },
+  "icon": "assets/bevy.png",
   "displayName": "Bevy Diagnostics Explorer",
   "description": "Diagnostics Explorer for Bevy Engine",
   "version": "0.0.1",
@@ -59,7 +65,7 @@
         {
           "id": "bevyProfilerContainer",
           "title": "Bevy",
-          "icon": "assets/bevy.svg"
+          "icon": "assets/bevy2.svg"
         }
       ]
     }
