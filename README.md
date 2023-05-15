@@ -15,15 +15,17 @@
 </div>
 
 
-### How to use
+## How to use
 
-1. Add dependency to Cargo.toml (TODO: publish to crates.io)
+[![Watch the video](https://img.youtube.com/vi/Set37p2VSG0/hqdefault.jpg)](https://youtu.be/Set37p2VSG0)
+
+1. Add dependency to Cargo.toml:
 ```toml
 [dependencies]
-bevy_diagnostics_explorer = { git = "...", branch = "main" }
+bevy_diagnostics_explorer = "0.1.0"
 ```
 
-2. Add plugin to your app
+2. Add plugin to your app:
 ```rust
 use bevy_diagnostics_explorer::DiagnosticsExplorerPlugin;
 ...
@@ -45,4 +47,13 @@ use bevy::log::LogPlugin;
 bevy = { version = "...", features = ["trace"] }
 ```
 
-5. Run VSCode with [Bevy Diagnostics Explorer](https://marketplace.visualstudio.com/items?itemName=zaycev.bevy-diagnostics-explorer) extension installed (TODO: publish to marketplace)
+5. Run VSCode with [Bevy Diagnostics Explorer](https://marketplace.visualstudio.com/items?itemName=xyzw-io.bevy-diagnostic-explorer);
+
+## How it works?
+
+Based on [Tracing](https://github.com/tokio-rs/tracing), [Actix](https://actix.rs/), and [VSCode](https://code.visualstudio.com/api/extension-guides/tree-view).
+
+- The plugin initiates a global tracing subscriber, named AgentTracingLayer. Its function is to gather diagnostic spans from the application, which are then stored in a temporary buffer. This storage process utilizes the cross-beam channel.
+- Next, the plugin creates a background thread. This thread includes an HTTP server, provided by Actix, that serves the collected spans.
+- The v1 encoding for spans and name registries is done in a simple and compact manner. In essence, it is a set of base64 buffers.
+- Lastly, the VScode extension performs a consolidation of all spans. It uses the scope/name key for this purpose, and it displays average durations calculated over an entire observed time period.
