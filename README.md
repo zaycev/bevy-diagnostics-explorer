@@ -25,9 +25,9 @@ bevy_diagnostics_explorer = { git = "...", branch = "main" }
 
 2. Add plugin to your app
 ```rust
-use bevy_diagnostics_explorer::DiagnosticsExplorerPlugin;
+use bevy_diagnostics_explorer::DiagnosticExplorerAgentPlugin;
 ...
-    .add_plugin(DiagnosticsExplorerPlugin)
+    .add_plugin(DiagnosticExplorerAgentPlugin)
 ```
 
 3. Disable default logging system
@@ -45,4 +45,4 @@ use bevy::log::LogPlugin;
 bevy = { version = "...", features = ["trace"] }
 ```
 
-5. Run VSCode with [Bevy Diagnostics Explorer](https://marketplace.visualstudio.com/items?itemName=zaycev.bevy-diagnostics-explorer) extension installed (TODO: publish to marketplace)
+5. Run VSCode with [Bevy Diagnostics Explorer](https://marketplace.visualstudio.com/items?itemName=xyzw-io.bevy-diagnostic-explorer) extension installed
